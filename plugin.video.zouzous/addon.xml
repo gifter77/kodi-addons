@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.zouzous" version="1.0.1" name="Zouzous Replay" provider-name="Adrien">
+<requires>
+  <import addon="xbmc.python" version="2.20.0"/>
+</requires>
+<extension point="xbmc.python.pluginsource" library="main.py">
+  <provides>video</provides>
+</extension>
+<extension point="xbmc.addon.metadata">
+  <summary lang="en">Zouzous Replay</summary>
+  <description lang="en">Watch Zouzous replay in Kodi.</description>
+  <disclaimer lang="en">You need to be in France to use this Plugin.</disclaimer>
+</extension>
+</addon>
