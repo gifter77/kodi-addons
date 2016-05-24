@@ -42,7 +42,7 @@ def get_episodes():
     soup = get_soup("http://www.zouzous.fr/videos")
     src   = re.findall("""jQuery.extend\(Drupal.settings, (.+?)\);""",soup)
     #print src[0]
-    data = src[0].replace("null","None").replace("false","False")
+    data = src[0].replace("null","None").replace("false","False").replace("true","True")
     #print data
     l = eval(data)
     #videos_list = sorted(l['videos_replay']['data'], key=lambda k: k['hero_title'])

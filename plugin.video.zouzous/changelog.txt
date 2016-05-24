@@ -1,3 +1,6 @@
+v1.0.2  (24-05-2016)
+- Fix episode list parsing
+
 v1.0.1  (31-01-2016)
 - Add support for bonus videos
 
