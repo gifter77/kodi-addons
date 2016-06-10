@@ -1,3 +1,6 @@
+v1.1.0 (10-06-2016)
+- Support for new Zouzous website
+
 v1.0.2  (24-05-2016)
 - Fix episode list parsing
 
