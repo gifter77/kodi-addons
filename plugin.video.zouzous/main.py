@@ -22,7 +22,7 @@ def get_episodes():
 
     global VIDEOS
 
-    VIDEOS = get_videos_list()
+    VIDEOS = build_heros_list()
 
 def get_categories():
     """
@@ -47,6 +47,8 @@ def get_videos(category):
     """
     #print category
     global VIDEOS
+    if VIDEOS[category]['episodes'] == None:
+        VIDEOS[category]['episodes'] = build_episodes_list(category)
     return VIDEOS[category]['episodes']
 
 

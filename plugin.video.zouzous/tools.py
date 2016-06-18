@@ -31,8 +31,8 @@ def get_url(id):
     for e in l['videos']:
         if e['format'] == 'm3u8-download':
             return e['url'].replace("\\","")
-
-def get_videos_list():
+        
+def build_heros_list():
     page = get_soup("http://www.zouzous.fr/")
     #tree = html.fromstring(page)
 
@@ -54,15 +54,16 @@ def get_videos_list():
         hid = heros_ids[i]
         icon = heros_icon[i].replace("88x88","vignette")
         name = heros_name[i]
-        print name
-        soup = get_soup("http://www.zouzous.fr/heros/%s/playlist?limit=100&offset=0"%hid)
-        #src   = re.findall('"items":\[(.*)\],',soup)
-        data = soup.replace("null","None").replace("false","False").replace("true","True")
-        l = eval(data)
-        videos_list[hid] = {'name':name, 'icon':icon, 'episodes':l["items"]}
+        videos_list[hid] = {'name': name, 'icon': icon, 'episodes': None}
         
     return videos_list
 
+def build_episodes_list(hid):
+    soup = get_soup("http://www.zouzous.fr/heros/%s/playlist?limit=100&offset=0"%hid)
+    data = soup.replace("null","None").replace("false","False").replace("true","True")
+    l = eval(data)
+    return l["items"]
+
 if __name__ == "__main__":
 
-    get_videos_list()
+    get_heros_list()
