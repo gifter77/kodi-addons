@@ -2,8 +2,7 @@
 import urllib
 import urllib2
 import re
-#from lxml import html
-#from xml.etree import ElementTree
+import m3u8
 
 def repl(m):
     return m.group().lower().encode('ascii', 'strict').decode('unicode-escape')
@@ -63,6 +62,21 @@ def build_episodes_list(hid):
     data = soup.replace("null","None").replace("false","False").replace("true","True")
     l = eval(data)
     return l["items"]
+
+def select_m3u8(master, max_bitrate):
+    master_m3u8 = m3u8.load(master)
+
+    selected_m3u8 = None
+
+    for playlist in sorted(master_m3u8.playlists, key=lambda x: x.stream_info.bandwidth):
+        if playlist.stream_info.bandwidth <= max_bitrate:
+            selected_m3u8 = playlist.uri
+            
+    if selected_m3u8 == None:
+        selected_m3u8 = sorted(master_m3u8.playlists, key=lambda x: x.stream_info.bandwidth)[0].uri
+
+    return selected_m3u8
+        
 
 if __name__ == "__main__":
 

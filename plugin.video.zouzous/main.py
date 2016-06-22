@@ -8,6 +8,7 @@ import sys
 from urlparse import parse_qsl
 import xbmcgui
 import xbmcplugin
+import xbmcaddon
 import itertools
 from tools import *
 
@@ -146,8 +147,14 @@ def play_video(path):
 
     :param path: str
     """
+    addon = xbmcaddon.Addon(id="plugin.video.zouzous")
+    max_bitrate = int(addon.getSetting("max_bitrate_kb"))*1000
+    #print "MAXBITRATE: %d"%max_bitrate
+    video_m3u8 = select_m3u8(path, max_bitrate)
+    #print video_m3u8
+    
     # Create a playable item with a path to play.
-    play_item = xbmcgui.ListItem(path=path)
+    play_item = xbmcgui.ListItem(path=video_m3u8)
     # Pass the item to the Kodi player.
     xbmcplugin.setResolvedUrl(_handle, True, listitem=play_item)
 

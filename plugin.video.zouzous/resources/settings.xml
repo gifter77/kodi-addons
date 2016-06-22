@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+  <setting id="max_bitrate_kb" type="labelenum" default="512" label="Maximum bitrate (kb/s)" values="512|1024|1536|2048"/>
+</settings>

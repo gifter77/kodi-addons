@@ -1,3 +1,6 @@
+v1.1.2 (22-06-2016)
+- Add setting to limit the bandwidth
+
 v1.1.1 (18-06-2016)
 - Some performance optimisations
 
