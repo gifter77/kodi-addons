@@ -21,7 +21,7 @@ def get_soup(url):
 def get_url(id):
     #soup = get_soup("http://webservices.francetelevisions.fr/tools/getInfosOeuvre/v2/?idDiffusion={0}&catalogue=Pluzz&callback=webserviceCallback_{0}".format(id))
 
-    soup = get_soup("http://sivideo.webservices.francetelevisions.fr/tools/getInfosOeuvre/v2/?idDiffusion={0}&catalogue=Zouzous_web&callback=_jsonp_loader_callback_request_0".format(id))
+    soup = get_soup("http://sivideo.webservices.francetelevisions.fr/tools/getInfosOeuvre/v2/?idDiffusion={0}&catalogue=Zouzous&callback=_jsonp_loader_callback_request_0".format(id))
     #print soup
     #src   = re.findall("webserviceCallback_%d\((.+?)\)"%id,soup)
     src   = re.findall("_jsonp_loader_callback_request_0\((.+?)\)",soup)
